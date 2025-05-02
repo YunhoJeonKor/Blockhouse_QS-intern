@@ -16,7 +16,7 @@ At each timestamp, according to the paper's cost function, the router minimizes 
 - Under/overfill penalties
 - Queue risk
 
-The router randomly samples 100 combinations of the parameters (`lambda_over`, `lambda_under`, `theta_queue`) and selects the one with the lowest average fill price.
+The router randomly samples 100 combinations of the parameters (`lambda_over`, `lambda_under`, `theta_queue`) and selects the one with the lowest execution cost, then get the cumulative cost.
 
 ## Parameter Ranges
 

@@ -5,7 +5,7 @@ This is Yunho Jeon (yj3258@nyu.edu), currently studying Mathematics in Finance a
 
 # Smart Order Router Backtest
 
-This project implements a Smart Order Router (SOR) that optimally splits a large order across venues using Level-1 quote data. It compares the SOR's performance against baseline strategies: Best-Ask, TWAP, and VWAP.  
+This project implements a Smart Order Router (SOR) that optimally splits a large order across venues using Level-1 quote data. In this case, we had single venue. It compares the SOR's performance against baseline strategies: Best-Ask, TWAP, and VWAP.  
 For VWAP, the data was divided into 1-minute buckets, and weights were assigned based on observed ask sizes.
 
 ## Approach

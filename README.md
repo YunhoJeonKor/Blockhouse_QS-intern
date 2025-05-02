@@ -19,7 +19,8 @@ At each timestamp, following the cost function proposed in the paper, the router
 - Underfill and overfill penalties
 - Queue risk
 
-The SOR randomly samples 100 parameter combinations (`lambda_over`, `lambda_under`, `theta_queue`) and selects the one that yields the lowest execution cost, measured by total cash spent.
+The SOR randomly samples 100 parameter combinations (`lambda_over`, `lambda_under`, `theta_queue`) and selects the one that yields the lowest execution cost.
+Then compare the SOR's performance against baseline strategies based on cumulative cost.
 
 ## Parameter Ranges
 
@@ -35,7 +36,7 @@ These control trade-offs between execution cost, fill precision, and queue risk 
 
 To improve realism, Level-3 data (e.g., order lifetime, cancellations) could be used to estimate fill probabilities more accurately. Prior research suggests that knowing the distribution of front-of-queue cancellations and marketable orders would significantly enhance simulation realism.
 
-If only Level-2 data is available, incorporating order imbalance can help anticipate short-term directional pressure, allowing for more adaptive and price-aware execution strategies.
+In addition, incorporating order imbalance can help anticipate short-term directional pressure, allowing for more adaptive and price-aware execution strategies.
 
 ## Example Output
 

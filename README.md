@@ -27,9 +27,9 @@ These control trade-offs between execution cost, fill risk, and inventory accura
 
 ## Improving Fill Realism
 
-To better reflect real-world execution, Level-3 data (e.g., order lifetime, cancellation behavior) could be incorporated to estimate fill probabilities more accurately. In particular, knowing the distribution of front-of-queue cancellations and marketable order arrivals would improve realism.
+To improve realism, Level-3 data (e.g., order lifetime, cancellations) could be used to estimate fill probabilities more accurately. Prior research shows that knowing the distribution of front-of-queue cancellations and marketable orders would enhance simulation quality.
 
-If only Level-2 data is available, order imbalance could be used to capture short-term directional pressure, enabling more adaptive and price-sensitive execution.
+If only Level-2 data is available, incorporating order imbalance could help anticipate short-term directional pressure, leading to more adaptive and price-sensitive execution.
 
 ## Example Output
 
@@ -60,3 +60,4 @@ If only Level-2 data is available, order imbalance could be used to capture shor
     "vs_vwap_volume_weighted": 211.08
   }
 }
+

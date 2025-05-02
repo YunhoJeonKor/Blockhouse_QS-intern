@@ -22,6 +22,28 @@ At each timestamp, following the cost function proposed in the paper, the router
 The SOR randomly samples 100 parameter combinations (`lambda_over`, `lambda_under`, `theta_queue`) and selects the one that yields the lowest execution cost.
 Then compare the SOR's performance against baseline strategies based on cumulative cost.
 
+## Code Structure
+load_snapshots(csv_path)
+Parses Level-1 data into time-ordered snapshots. Each snapshot is a list of venue quotes (even though we use one venue here).
+
+compute_cost(split, venues, λo, λu, θq)
+Computes total cost based on price, mid-price deviation, queue penalty, and fill mismatch penalties.
+
+allocate(order_size, venues, λo, λu, θq)
+Explores all possible split combinations (in 100-share steps) and chooses the one with the lowest cost.
+
+best_ask_strategy(snapshots, order_size)
+Executes the entire order using the venue with the lowest ask price at each time.
+
+twap_60s_fill_all_snapshots_with_timestamps(...)
+Divides time into 60-second intervals and evenly distributes the order across them.
+
+vwap_strategy_by_volume_weight(...)
+Calculates volume-weighted splits based on ask sizes observed in each minute-long time bucket.
+
+compute_sor_result(...)
+Runs the SOR logic 100 times with random parameters and returns the one that minimizes total cost.
+
 ## Parameter Ranges
 
 The search space for the hyperparameters is sampled from uniform distributions:

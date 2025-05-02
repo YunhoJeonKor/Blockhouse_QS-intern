@@ -17,7 +17,7 @@ The router randomly samples 100 combinations of the parameters (`lambda_over`, `
 
 ## Parameter Ranges
 
-The search space for the hyperparameters is:
+The search space for the hyperparameters is based on Uniform distribution:
 
 - `lambda_over`: 0.001 – 10  
 - `lambda_under`: 0.001 – 10  
@@ -25,7 +25,7 @@ The search space for the hyperparameters is:
 
 These control trade-offs between execution cost, fill risk, and inventory accuracy.
 
-## Improving Fill Realism
+## Suggested Improvement
 
 To improve realism, Level-3 data (e.g., order lifetime, cancellations) could be used to estimate fill probabilities more accurately. Prior research shows that knowing the distribution of front-of-queue cancellations and marketable orders would enhance simulation quality.
 

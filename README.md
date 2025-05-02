@@ -40,6 +40,9 @@ In addition, incorporating order imbalance can help anticipate short-term direct
 
 ## Example Output
 
+AS we see here, SOR outperms than the other baselines.
+
+
 ```json
 {
   "smart_order_router": {
@@ -67,4 +70,6 @@ In addition, incorporating order imbalance can help anticipate short-term direct
     "vs_vwap_volume_weighted": 211.08
   }
 }
+
+
 

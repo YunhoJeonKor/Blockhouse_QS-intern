@@ -23,25 +23,25 @@ The SOR randomly samples 100 parameter combinations (`lambda_over`, `lambda_unde
 Then compare the SOR's performance against baseline strategies based on cumulative cost.
 
 ## Code Structure
-# Method load_snapshots(csv_path):
+### Method load_snapshots(csv_path):
 Parses Level-1 data into time-ordered snapshots. Each snapshot is a list of venue quotes (even though we use one venue here).
 
-# Method compute_cost(split, venues, λo, λu, θq):
+### Method compute_cost(split, venues, λo, λu, θq):
 
 Computes total cost based on price, mid-price deviation, queue penalty, and fill mismatch penalties.
-# Method allocate(order_size, venues, λo, λu, θq):
+### Method allocate(order_size, venues, λo, λu, θq):
 
 Explores all possible split combinations (in 100-share steps) and chooses the one with the lowest cost.
-# Method best_ask_strategy(snapshots, order_size):
+### Method best_ask_strategy(snapshots, order_size):
 
 Executes the entire order using the venue with the lowest ask price at each time.
-# Method twap_60s_fill_all_snapshots_with_timestamps(...):
+### Method twap_60s_fill_all_snapshots_with_timestamps(...):
 
 Divides time into 60-second intervals and evenly distributes the order across them.
-# Method vwap_strategy_by_volume_weight(...):
+### Method vwap_strategy_by_volume_weight(...):
 
 Calculates volume-weighted splits based on ask sizes observed in each minute-long time bucket.
-# Method compute_sor_result(...):
+### Method compute_sor_result(...):
 
 Runs the SOR logic 100 times with random parameters and returns the one that minimizes total cost.
 

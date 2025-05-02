@@ -5,34 +5,37 @@ This is Yunho Jeon (yj3258@nyu.edu), currently studying Mathematics in Finance a
 
 # Smart Order Router Backtest
 
-This project implements a Smart Order Router (SOR) that optimally splits a large order across venues using Level-1 quote data. It compares the SOR's performance against baseline strategies: Best-Ask, TWAP, and VWAP.
+This project implements a Smart Order Router (SOR) that optimally splits a large order across venues using Level-1 quote data. It compares the SOR's performance against baseline strategies: Best-Ask, TWAP, and VWAP.  
+For VWAP, the data was divided into 1-minute buckets, and weights were assigned based on observed ask sizes.
 
 ## Approach
 
-At each timestamp, according to the paper's cost function, the router minimizes an execution cost function that includes:
+The goal is to buy 5,000 shares before the time horizon ends using four methods: SOR, Best-Ask, TWAP, and VWAP.
 
-- fee
-- Mid-price deviation (for adverse selection)
-- Under/overfill penalties
+At each timestamp, following the cost function proposed in the paper, the router minimizes an execution cost composed of:
+
+- Fee
+- Mid-price deviation (to account for adverse selection)
+- Underfill and overfill penalties
 - Queue risk
 
-The router randomly samples 100 combinations of the parameters (`lambda_over`, `lambda_under`, `theta_queue`) and selects the one with the lowest execution cost, then get the cumulative cost.
+The SOR randomly samples 100 parameter combinations (`lambda_over`, `lambda_under`, `theta_queue`) and selects the one that yields the lowest execution cost, measured by total cash spent.
 
 ## Parameter Ranges
 
-The search space for the hyperparameters is based on Uniform distribution:
+The search space for the hyperparameters is sampled from uniform distributions:
 
 - `lambda_over`: 0.001 – 10  
 - `lambda_under`: 0.001 – 10  
 - `theta_queue`: 0.001 – 10
 
-These control trade-offs between execution cost, fill risk, and inventory accuracy.
+These control trade-offs between execution cost, fill precision, and queue risk sensitivity.
 
 ## Suggested Improvement
 
-To improve realism, Level-3 data (e.g., order lifetime, cancellations) could be used to estimate fill probabilities more accurately. Prior research shows that knowing the distribution of front-of-queue cancellations and marketable orders would enhance simulation quality.
+To improve realism, Level-3 data (e.g., order lifetime, cancellations) could be used to estimate fill probabilities more accurately. Prior research suggests that knowing the distribution of front-of-queue cancellations and marketable orders would significantly enhance simulation realism.
 
-If only Level-2 data is available, incorporating order imbalance could help anticipate short-term directional pressure, leading to more adaptive and price-sensitive execution.
+If only Level-2 data is available, incorporating order imbalance can help anticipate short-term directional pressure, allowing for more adaptive and price-aware execution strategies.
 
 ## Example Output
 

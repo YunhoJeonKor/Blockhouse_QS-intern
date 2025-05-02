@@ -1,5 +1,8 @@
 # Blockhouse_QS-intern
 
+Blockhouse Quant Strategist Intern Submission
+This is Yunho Jeon (yj3258@nyu.edu), currently studying Mathematics in Finance at NYU.
+
 # Smart Order Router Backtest
 
 This project implements a Smart Order Router (SOR) that optimally splits a large order across venues using Level-1 quote data. It compares the SOR's performance against baseline strategies: Best-Ask, TWAP, and VWAP.

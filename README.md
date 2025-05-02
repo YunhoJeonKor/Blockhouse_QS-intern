@@ -59,7 +59,6 @@ These control trade-offs between execution cost, fill precision, and queue risk 
 
 To improve realism, Level-3 data (e.g., order lifetime, cancellations) could be used to estimate fill probabilities more accurately. Prior research suggests that knowing the distribution of front-of-queue cancellations and marketable orders would significantly enhance simulation realism.
 
-In addition, incorporating order imbalance can help anticipate short-term directional pressure, allowing for more adaptive and price-aware execution strategies.
 
 ## Example Output
 

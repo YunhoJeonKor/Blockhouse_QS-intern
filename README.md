@@ -9,9 +9,9 @@ This project implements a Smart Order Router (SOR) that optimally splits a large
 
 ## Approach
 
-At each timestamp, the router minimizes an execution cost function that includes:
+At each timestamp, according to the paper's cost function, the router minimizes an execution cost function that includes:
 
-- Price (ask + fee)
+- fee
 - Mid-price deviation (for adverse selection)
 - Under/overfill penalties
 - Queue risk

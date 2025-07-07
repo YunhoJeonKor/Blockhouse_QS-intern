@@ -1,6 +1,3 @@
-# Blockhouse_QS-intern
-
-Blockhouse Quant Strategist Intern Submission
 This is Yunho Jeon (yj3258@nyu.edu), currently studying Mathematics in Finance at NYU.
 
 # Smart Order Router Backtest
